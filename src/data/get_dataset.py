@@ -149,8 +149,6 @@ def get_dataset(
         data_dir = os.path.dirname(os.path.realpath(__file__))
         data_dir = os.path.join(data_dir, 'traffic')
 
-    traffic_data_names = ['pems03', 'pems04', 'pems08', 'pems-bay', 'metr-la']
-    assert dataset_name in traffic_data_names, f'Traffic Datasets are: {traffic_data_names}'
     dataset_path = os.path.join(data_dir, dataset_name)
     train_x, val_x, test_x, train_y, val_y, test_y, scaler = get_raw_data(
         dataset_path,
