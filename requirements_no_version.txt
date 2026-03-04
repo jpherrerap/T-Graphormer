@@ -11,7 +11,7 @@ cffi
 charset_normalizer
 colorama
 Cython
-fairseq
+# fairseq
 filelock
 frozenlist
 fsspec
@@ -72,3 +72,5 @@ urllib3
 werkzeug
 yarl
 zipp
+timm
+wandb
