@@ -238,7 +238,7 @@ def main(args):
         bias_wd=args.bias_wd,
     )
     beta = (0.9, 0.999) if args.beta is None else tuple(args.beta)
-    optimizer = torch.optim._multi_tensor.AdamW(
+    optimizer = torch.optim.AdamW(
         param_groups,
         lr=args.lr,
         betas=beta,

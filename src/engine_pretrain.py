@@ -59,7 +59,7 @@ def train_one_epoch(
             )
         del batched_data['y']
         batched_data = misc.prepare_batch(batched_data, device=device)
-        with torch.amp.autocast(device_type=device, enabled=not fp32):
+        with torch.amp.autocast(device_type=device.type, enabled=not fp32):
             loss, pred, mask = model(
                 batched_data,
                 mask_ratio=args.mask_ratio,
