@@ -660,7 +660,7 @@ class MaskedGraphAutoEncoder(nn.Module):
         x = x + decoder_pos_embed.contiguous().view(N, -1, D)
 
         # apply Transformer blocks with attn bias
-        inner_states = self.decoder_blocks(x, attn_bias)
+        inner_states, _ = self.decoder_blocks(x, attn_bias)
         x = inner_states[-1].contiguous().transpose(0, 1)
         x = self.decoder_norm(x)
         # [N, T * num_nodes, decoder_embed_dim]
