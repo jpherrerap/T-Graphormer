@@ -128,6 +128,10 @@ def main(args):
         torch.set_num_threads(1)
 
     device = torch.device(args.device)
+    
+    # Set GPU for current process in distributed training
+    if args.device == 'cuda' and args.distributed:
+        torch.cuda.set_device(args.local_rank)
 
     # fix the seed for reproducibility
     seed = args.seed + misc.get_rank()
